@@ -1,6 +1,5 @@
 FROM php:7.3.6-fpm-alpine3.9
 RUN apk add  --no-cache openssl bash mysql-client nodejs npm
-
 RUN docker-php-ext-install pdo pdo_mysql
 
 ENV DOCKERIZE_VERSION v0.6.1
@@ -19,11 +18,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #     php artisan migrate
 
 RUN ln -s public html
-
-# ADD . /var/www
-# RUN chown -R desafio /var/www/storage
-# RUN chown -R www-data:www-data /var/www
-# RUN chmod -R 755 /var/www/storage
 
 EXPOSE 9000
 
